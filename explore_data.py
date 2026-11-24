@@ -1,0 +1,18 @@
+import pandas as pd
+crop_df = pd.read_csv("data/Crop_recommendation.csv")
+fert_df = pd.read_csv("data/Fertilizer Prediction.csv")
+yield_df = pd.read_csv("data/crop_yield.csv")
+for name, df in [("CROP", crop_df), ("FERTILIZER", fert_df), ("YIELD", yield_df)]:
+    print()
+    print("=" * 50)
+    print("  " + name + " DATASET")
+    print("=" * 50)
+    print("Rows:", df.shape[0], " Columns:", df.shape[1])
+    print("Column names:", df.columns.tolist())
+    print()
+    print("First 3 rows:")
+    print(df.head(3))
+    print()
+    print("Missing values per column:")
+    print(df.isnull().sum())
+    print("Duplicate rows:", df.duplicated().sum())
